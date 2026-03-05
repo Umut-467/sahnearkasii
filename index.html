@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SahneArkası – Giyim & Moda</title>
+<meta name="description" content="SahneArkası – Özgün tasarımlar, baskılı koleksiyonlar ve moda ürünleri. Shopier güvenli ödeme.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0A1628;
+  --blue: #1E3A8A;
+  --sky: #3B82F6;
+  --accent: #60A5FA;
+  --white: #FFFFFF;
+  --off: #F8FAFF;
+  --gray: #E8EFF8;
+  --mid: #334155;
+  --light: #64748B;
+  --gold: #F59E0B;
+  --green: #10B981;
+  --red: #EF4444;
+  --orange: #FF6B35;
+  --t: 0.3s cubic-bezier(.4,0,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--navy);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;height:auto;display:block}
+
+/* TOPBAR */
+.topbar{background:var(--navy);color:var(--accent);text-align:center;padding:9px 16px;font-size:13px;letter-spacing:.4px;position:relative;z-index:100}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--gray);transition:box-shadow var(--t)}
+header.scrolled{box-shadow:0 4px 30px rgba(10,22,40,.1)}
+.header-wrap{max-width:1320px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:20px;height:72px}
+.logo{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--navy);flex-shrink:0;letter-spacing:-.5px}
+.logo span{color:var(--sky)}
+.search{flex:1;max-width:500px;position:relative}
+.search input{width:100%;padding:11px 48px 11px 20px;border:2px solid var(--gray);border-radius:50px;font-family:'DM Sans',sans-serif;font-size:14px;background:var(--off);outline:none;transition:border-color var(--t),box-shadow var(--t),background var(--t)}
+.search input:focus{border-color:var(--sky);box-shadow:0 0 0 4px rgba(59,130,246,.1);background:#fff}
+.search input::placeholder{color:#94a3b8}
+.search-btn{position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#94a3b8;font-size:18px;transition:color var(--t);line-height:1}
+.search-btn:hover{color:var(--sky)}
+.h-actions{display:flex;align-items:center;gap:4px;margin-left:auto}
+.h-btn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 10px;border:none;background:none;cursor:pointer;color:var(--mid);font-size:10px;font-family:'DM Sans',sans-serif;font-weight:600;border-radius:12px;transition:background var(--t),color var(--t);position:relative;letter-spacing:.3px}
+.h-btn:hover{background:var(--off);color:var(--sky)}
+.h-btn svg{width:22px;height:22px;stroke-width:1.8}
+.badge{position:absolute;top:3px;right:3px;background:var(--sky);color:#fff;font-size:9px;font-weight:800;min-width:16px;height:16px;border-radius:8px;display:flex;align-items:center;justify-content:center;padding:0 3px;line-height:1;border:2px solid #fff}
+.auth-btns{display:flex;gap:8px;margin-left:8px;flex-shrink:0}
+.btn-login{padding:9px 22px;border:2px solid var(--sky);border-radius:50px;background:none;color:var(--sky);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all var(--t);white-space:nowrap}
+.btn-login:hover{background:var(--sky);color:#fff}
+.btn-reg{padding:9px 22px;border:2px solid var(--blue);border-radius:50px;background:var(--blue);color:#fff;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all var(--t);white-space:nowrap}
+.btn-reg:hover{background:var(--sky);border-color:var(--sky)}
+
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
+.hamburger span{width:24px;height:2px;background:var(--navy);border-radius:2px;transition:all var(--t);display:block}
+
+/* NAV */
+nav{background:var(--navy)}
+.nav-wrap{max-width:1320px;margin:0 auto;padding:0 24px;display:flex;align-items:center}
+.nav-item{position:relative}
+.nav-link{display:block;padding:14px 18px;color:rgba(255,255,255,.8);font-size:14px;font-weight:500;transition:color var(--t),background var(--t);white-space:nowrap;cursor:pointer}
+.nav-link:hover,.nav-item:hover>.nav-link{color:#fff;background:rgba(255,255,255,.07)}
+.nav-arrow{font-size:9px;margin-left:5px;display:inline-block;transition:transform var(--t)}
+.nav-item:hover .nav-arrow{transform:rotate(180deg)}
+.mega{display:none;position:absolute;top:100%;left:0;background:#fff;border-radius:0 0 20px 20px;box-shadow:0 25px 70px rgba(10,22,40,.15);padding:32px;min-width:540px;z-index:998;border-top:3px solid var(--sky);gap:28px}
+.nav-item:hover .mega{display:flex}
+.mega-col h5{font-size:10px;font-weight:800;color:var(--sky);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.mega-col a{display:block;padding:5px 0;color:var(--mid);font-size:13px;transition:color var(--t),padding-left var(--t)}
+.mega-col a:hover{color:var(--sky);padding-left:8px}
+.mega-promo{background:linear-gradient(135deg,var(--blue),var(--sky));border-radius:14px;padding:22px;color:#fff;min-width:170px;display:flex;flex-direction:column;justify-content:center}
+.mega-promo .mp-tag{font-size:10px;letter-spacing:1.5px;opacity:.75;margin-bottom:8px;font-weight:700;text-transform:uppercase}
+.mega-promo .mp-title{font-family:'Playfair Display',serif;font-size:22px;margin-bottom:6px}
+.mega-promo .mp-sub{font-size:12px;opacity:.7;margin-bottom:16px;line-height:1.5}
+.mega-promo a{display:inline-block;padding:8px 18px;background:#fff;color:var(--blue);border-radius:20px;font-size:12px;font-weight:800;transition:transform var(--t)}
+.mega-promo a:hover{transform:scale(1.05)}
+
+/* MOBILE NAV */
+.mob-nav{display:none;background:var(--navy);flex-direction:column;padding:8px 0 16px}
+.mob-nav a{display:block;padding:12px 24px;color:rgba(255,255,255,.8);font-size:14px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.06);transition:color var(--t),background var(--t)}
+.mob-nav a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.mob-nav.open{display:flex}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,#162040 45%,#0d1d4a 100%);min-height:540px;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;right:-5%;width:650px;height:650px;background:radial-gradient(circle,rgba(59,130,246,.2) 0%,transparent 65%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-40%;left:15%;width:500px;height:500px;background:radial-gradient(circle,rgba(96,165,250,.1) 0%,transparent 65%);pointer-events:none}
+.hero-wrap{max-width:1320px;margin:0 auto;padding:70px 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;width:100%;position:relative;z-index:1}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(96,165,250,.15);border:1px solid rgba(96,165,250,.35);color:var(--accent);font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:7px 18px;border-radius:50px;margin-bottom:22px}
+.hero-tag span{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(38px,4.5vw,62px);color:#fff;line-height:1.1;margin-bottom:18px;letter-spacing:-.5px}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero p{color:rgba(255,255,255,.65);font-size:16px;line-height:1.75;margin-bottom:36px;max-width:430px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-pri{padding:15px 34px;background:linear-gradient(135deg,var(--sky),var(--accent));color:#fff;border:none;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:transform var(--t),box-shadow var(--t);display:inline-block;letter-spacing:.3px}
+.btn-pri:hover{transform:translateY(-3px);box-shadow:0 15px 35px rgba(59,130,246,.45)}
+.btn-out{padding:15px 34px;background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35);border-radius:50px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all var(--t);display:inline-block}
+.btn-out:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.8)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.hero-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:18px;aspect-ratio:.82;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:18px;position:relative;overflow:hidden;transition:transform var(--t),background var(--t);cursor:pointer}
+.hero-card:hover{transform:translateY(-5px);background:rgba(255,255,255,.11)}
+.hero-card:nth-child(1){margin-top:36px}
+.hero-card:nth-child(3){margin-top:36px}
+.hc-img{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:70px;opacity:.18;transition:transform var(--t)}
+.hero-card:hover .hc-img{transform:scale(1.1)}
+.hc-label{position:relative;z-index:1;background:rgba(255,255,255,.12);color:#fff;padding:7px 16px;border-radius:20px;font-size:12px;font-weight:700;backdrop-filter:blur(6px);letter-spacing:.5px}
+
+/* TRUST BAR */
+.trust{background:var(--off);border-top:1px solid var(--gray);border-bottom:1px solid var(--gray);padding:18px 24px}
+.trust-wrap{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--mid);white-space:nowrap}
+.trust-dot{width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0}
+.trust-sep{color:var(--gray);font-size:20px;line-height:1}
+
+/* SECTION */
+.sec{padding:72px 24px;max-width:1320px;margin:0 auto}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:44px;gap:16px;flex-wrap:wrap}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(30px,3.5vw,42px);color:var(--navy);line-height:1.15}
+.sec-title span{color:var(--sky)}
+.sec-sub{color:var(--light);font-size:14px;margin-top:8px;line-height:1.5}
+.btn-all{padding:11px 26px;border:2px solid var(--sky);border-radius:50px;color:var(--sky);background:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all var(--t);white-space:nowrap;display:inline-block}
+.btn-all:hover{background:var(--sky);color:#fff}
+
+/* CATEGORIES */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.cat-card{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:.78;cursor:pointer;transition:transform var(--t),box-shadow var(--t)}
+.cat-card:hover{transform:translateY(-8px);box-shadow:0 25px 60px rgba(10,22,40,.22)}
+.cat-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:88px;opacity:.22;transition:transform var(--t),opacity var(--t)}
+.cat-card:hover .cat-bg{transform:scale(1.12);opacity:.3}
+.cat-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 25%,rgba(5,10,25,.88) 100%)}
+.cat-info{position:absolute;bottom:0;left:0;right:0;padding:26px 22px;color:#fff}
+.cat-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;margin-bottom:4px}
+.cat-count{font-size:12px;opacity:.65;margin-bottom:14px}
+.cat-link{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:var(--accent);transition:gap var(--t);letter-spacing:.5px}
+.cat-card:hover .cat-link{gap:12px}
+.cat-card:nth-child(1){background:linear-gradient(145deg,#1E3A8A,#3B82F6)}
+.cat-card:nth-child(2){background:linear-gradient(145deg,#134e4a,#0d9488)}
+.cat-card:nth-child(3){background:linear-gradient(145deg,#581c87,#9333ea)}
+.cat-card:nth-child(4){background:linear-gradient(145deg,#7c2d12,#ea580c)}
+
+/* PRODUCTS */
+.prod-bg{background:var(--off)}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.prod-card{background:#fff;border-radius:22px;overflow:hidden;border:1px solid var(--gray);transition:transform var(--t),box-shadow var(--t);position:relative}
+.prod-card:hover{transform:translateY(-8px);box-shadow:0 25px 55px rgba(10,22,40,.13)}
+.prod-img{position:relative;aspect-ratio:.88;background:var(--off);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.prod-img img{width:100%;height:100%;object-fit:cover;transition:transform var(--t)}
+.prod-card:hover .prod-img img{transform:scale(1.05)}
+.prod-img-ph{font-size:78px;transition:transform var(--t)}
+.prod-card:hover .prod-img-ph{transform:scale(1.08)}
+.prod-badge{position:absolute;top:14px;left:14px;color:#fff;font-size:10px;font-weight:800;padding:5px 12px;border-radius:20px;letter-spacing:.7px;text-transform:uppercase;z-index:1}
+.badge-new{background:var(--sky)}
+.badge-sale{background:var(--red)}
+.badge-pod{background:#9333ea}
+.badge-trend{background:var(--orange)}
+.wish-btn{position:absolute;top:14px;right:14px;width:38px;height:38px;background:#fff;border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.12);transition:all var(--t);font-size:17px;z-index:1}
+.wish-btn:hover{transform:scale(1.15);background:#fee2e2}
+.wish-btn.active{background:#fee2e2}
+.prod-body{padding:18px}
+.prod-cat{font-size:10px;color:var(--sky);font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px}
+.prod-name{font-family:'Playfair Display',serif;font-size:17px;color:var(--navy);margin-bottom:10px;line-height:1.35}
+.stars{display:flex;align-items:center;gap:2px;margin-bottom:14px}
+.star{font-size:13px;color:var(--gold)}
+.star-off{color:#e2e8f0}
+.star-cnt{font-size:12px;color:var(--light);margin-left:5px}
+.prod-foot{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--gray)}
+.price{font-size:22px;font-weight:800;color:var(--navy)}
+.price-old{font-size:13px;color:var(--light);text-decoration:line-through;margin-left:5px;font-weight:400}
+.btn-buy{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;background:linear-gradient(135deg,#FF6B35,#FF8C42);color:#fff;border:none;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:800;cursor:pointer;transition:all var(--t);letter-spacing:.3px}
+.btn-buy:hover{transform:scale(1.07);box-shadow:0 8px 22px rgba(255,107,53,.4)}
+
+/* PROMO */
+.promo-sec{background:var(--off);padding:0 24px 72px}
+.promo-wrap{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.promo-card{border-radius:26px;padding:40px 44px;position:relative;overflow:hidden;min-height:210px;display:flex;flex-direction:column;justify-content:center;cursor:pointer;transition:transform var(--t)}
+.promo-card:hover{transform:translateY(-5px)}
+.pc1{background:linear-gradient(135deg,var(--navy),#1e40af)}
+.pc2{background:linear-gradient(135deg,#1a0533,#581c87)}
+.promo-bg-txt{position:absolute;right:-15px;bottom:-15px;font-family:'Playfair Display',serif;font-size:120px;font-weight:700;color:rgba(255,255,255,.05);line-height:1;pointer-events:none;user-select:none}
+.promo-tag{font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.promo-title{font-family:'Playfair Display',serif;font-size:30px;color:#fff;margin-bottom:8px;line-height:1.2}
+.promo-desc{color:rgba(255,255,255,.6);font-size:14px;margin-bottom:22px;line-height:1.6}
+.promo-link{display:inline-flex;align-items:center;gap:9px;color:var(--accent);font-weight:700;font-size:14px;transition:gap var(--t);letter-spacing:.3px}
+.promo-link:hover{gap:16px}
+
+/* NEWSLETTER */
+.news-sec{background:linear-gradient(135deg,var(--navy),#1e3a8a 60%,#1e40af 100%);padding:90px 24px;position:relative;overflow:hidden}
+.news-sec::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1000px;height:500px;background:radial-gradient(ellipse,rgba(59,130,246,.12) 0%,transparent 70%);pointer-events:none}
+.news-wrap{max-width:620px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.news-tag{display:inline-block;background:rgba(96,165,250,.18);border:1px solid rgba(96,165,250,.3);color:var(--accent);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:7px 20px;border-radius:20px;margin-bottom:22px}
+.news-wrap h2{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,46px);color:#fff;margin-bottom:14px;line-height:1.15}
+.news-wrap p{color:rgba(255,255,255,.6);font-size:15px;margin-bottom:36px;line-height:1.7}
+.news-form{display:flex;gap:12px;max-width:480px;margin:0 auto}
+.news-form input{flex:1;padding:15px 22px;border:2px solid rgba(255,255,255,.18);border-radius:50px;background:rgba(255,255,255,.09);color:#fff;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:border-color var(--t)}
+.news-form input::placeholder{color:rgba(255,255,255,.4)}
+.news-form input:focus{border-color:var(--accent)}
+.news-form button{padding:15px 30px;background:linear-gradient(135deg,var(--sky),var(--accent));border:none;border-radius:50px;color:#fff;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:800;cursor:pointer;transition:all var(--t);white-space:nowrap}
+.news-form button:hover{transform:scale(1.06);box-shadow:0 10px 28px rgba(59,130,246,.45)}
+
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,.65);padding:70px 24px 32px}
+.foot-wrap{max-width:1320px;margin:0 auto}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:54px}
+.foot-logo{font-family:'Playfair Display',serif;font-size:26px;color:#fff;display:block;margin-bottom:14px}
+.foot-logo span{color:var(--accent)}
+.foot-desc{font-size:13px;line-height:1.75;margin-bottom:22px;max-width:230px}
+.socials{display:flex;gap:10px}
+.soc-link{width:38px;height:38px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all var(--t);color:rgba(255,255,255,.65)}
+.soc-link:hover{background:var(--sky);color:#fff;border-color:var(--sky)}
+.foot-col h6{font-size:11px;font-weight:800;color:#fff;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:18px}
+.foot-col a{display:block;padding:5px 0;color:rgba(255,255,255,.5);font-size:13px;transition:color var(--t)}
+.foot-col a:hover{color:var(--accent)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.09);padding-top:26px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.foot-bottom p{font-size:12px;color:rgba(255,255,255,.35)}
+.pay-logos{display:flex;gap:8px;flex-wrap:wrap}
+.pay-logo{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:7px;padding:5px 12px;font-size:11px;font-weight:700;color:rgba(255,255,255,.45)}
+
+/* SHOPIER MODAL */
+.overlay{display:none;position:fixed;inset:0;background:rgba(10,22,40,.78);z-index:5000;align-items:center;justify-content:center;backdrop-filter:blur(8px);padding:20px}
+.overlay.open{display:flex}
+.modal{background:#fff;border-radius:28px;width:100%;max-width:460px;overflow:hidden;animation:mIn .3s cubic-bezier(.4,0,.2,1)}
+@keyframes mIn{from{opacity:0;transform:scale(.93) translateY(24px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.shop-head{background:linear-gradient(135deg,#FF6B35,#FF8C42);padding:28px 32px;display:flex;justify-content:space-between;align-items:flex-start}
+.shop-head h3{font-family:'Playfair Display',serif;font-size:22px;color:#fff}
+.shop-head p{color:rgba(255,255,255,.72);font-size:13px;margin-top:4px}
+.m-close{background:rgba(255,255,255,.18);border:none;color:#fff;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:background var(--t);flex-shrink:0}
+.m-close:hover{background:rgba(255,255,255,.3)}
+.shop-body{padding:28px 32px}
+.prod-prev{display:flex;gap:16px;align-items:center;background:var(--off);border-radius:16px;padding:18px;margin-bottom:26px}
+.pp-emoji{font-size:52px;flex-shrink:0}
+.pp-info h4{font-family:'Playfair Display',serif;font-size:17px;color:var(--navy);margin-bottom:5px}
+.pp-price{font-size:24px;font-weight:800;color:var(--navy)}
+.pp-price small{font-size:12px;font-weight:400;color:var(--light);display:block;margin-top:2px}
+.pay-title{font-size:11px;font-weight:800;color:var(--light);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+.pay-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:26px}
+.pay-opt{border:2px solid var(--gray);border-radius:14px;padding:14px;cursor:pointer;transition:all var(--t);display:flex;flex-direction:column;align-items:center;gap:8px;background:#fff}
+.pay-opt:hover{border-color:var(--sky);background:var(--off)}
+.pay-opt.sel{border-color:var(--sky);background:rgba(59,130,246,.06)}
+.pay-opt-icon{font-size:26px;line-height:1}
+.pay-opt-name{font-size:12px;font-weight:700;color:var(--mid)}
+.pay-opt-sub{font-size:10px;color:var(--light)}
+.shop-go{width:100%;padding:16px;background:linear-gradient(135deg,#FF6B35,#FF8C42);color:#fff;border:none;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:800;cursor:pointer;transition:all var(--t);display:flex;align-items:center;justify-content:center;gap:10px;letter-spacing:.3px}
+.shop-go:hover{transform:translateY(-2px);box-shadow:0 14px 35px rgba(255,107,53,.45)}
+.sec-note{text-align:center;margin-top:14px;font-size:11px;color:var(--light);display:flex;align-items:center;justify-content:center;gap:6px}
+
+/* AUTH MODAL */
+.auth-head{background:linear-gradient(135deg,var(--navy),var(--blue));padding:28px 32px;display:flex;justify-content:space-between;align-items:flex-start}
+.auth-head h3{font-family:'Playfair Display',serif;font-size:22px;color:#fff}
+.auth-head p{color:rgba(255,255,255,.6);font-size:13px;margin-top:4px}
+.auth-body{padding:28px 32px}
+.tabs{display:flex;background:var(--off);border-radius:50px;padding:4px;margin-bottom:24px}
+.tab{flex:1;padding:10px;border:none;background:none;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;color:var(--light);transition:all var(--t)}
+.tab.active{background:var(--blue);color:#fff;box-shadow:0 3px 12px rgba(30,58,138,.35)}
+.soc-btns{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.soc-btn{display:flex;align-items:center;gap:12px;padding:13px 20px;border:2px solid var(--gray);border-radius:50px;background:#fff;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all var(--t);width:100%;color:var(--navy)}
+.soc-btn:hover{border-color:var(--sky);background:var(--off)}
+.soc-btn-icon{font-size:18px;width:22px;text-align:center}
+.divider{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--gray)}
+.divider span{font-size:12px;color:var(--light)}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:13px;font-weight:700;color:var(--mid);margin-bottom:7px}
+.fg input{width:100%;padding:13px 18px;border:2px solid var(--gray);border-radius:14px;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:all var(--t);background:var(--off)}
+.fg input:focus{border-color:var(--sky);box-shadow:0 0 0 4px rgba(59,130,246,.1);background:#fff}
+.btn-submit{width:100%;padding:15px;background:linear-gradient(135deg,var(--blue),var(--sky));color:#fff;border:none;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:800;cursor:pointer;margin-top:6px;transition:all var(--t);letter-spacing:.3px}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(30,58,138,.4)}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .prod-grid{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .hero-wrap{grid-template-columns:1fr}
+  .hero-grid{display:none}
+}
+@media(max-width:768px){
+  .header-wrap{flex-wrap:wrap;height:auto;padding:12px 16px;gap:10px}
+  .search{order:3;max-width:100%;width:100%}
+  .auth-btns{display:none}
+  .hamburger{display:flex}
+  .nav-wrap{display:none}
+  .promo-wrap{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .news-form{flex-direction:column}
+  .trust-sep{display:none}
+  .trust-item:nth-child(n+4){display:none}
+}
+@media(max-width:520px){
+  .cat-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .prod-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .prod-body{padding:12px}
+  .prod-name{font-size:14px}
+  .price{font-size:18px}
+  .btn-buy{padding:8px 12px;font-size:11px}
+  .pay-opts{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">✦ Yeni koleksiyon geldi! Ücretsiz kargo — 500₺ ve üzeri siparişlerde geçerli</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="header-wrap">
+    <a href="#" class="logo">Sahne<span>Arkası</span></a>
+
+    <div class="search">
+      <input type="text" placeholder="Ürün, kategori veya marka ara…" />
+      <button class="search-btn">🔍</button>
+    </div>
+
+    <div class="h-actions">
+      <button class="h-btn" onclick="openAuth('login')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg>
+        Hesabım
+      </button>
+      <button class="h-btn" id="wishBtn">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        Favoriler
+        <span class="badge" id="wc">0</span>
+      </button>
+      <button class="h-btn">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+        Sepet
+        <span class="badge">0</span>
+      </button>
+    </div>
+
+    <div class="auth-btns">
+      <button class="btn-login" onclick="openAuth('login')">Giriş Yap</button>
+      <button class="btn-reg" onclick="openAuth('register')">Üye Ol</button>
+    </div>
+
+    <button class="hamburger" id="ham" onclick="toggleMob()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MEGA MENU NAV (desktop) -->
+<nav>
+  <div class="nav-wrap">
+
+    <div class="nav-item">
+      <div class="nav-link">Kadın <span class="nav-arrow">▾</span></div>
+      <div class="mega">
+        <div class="mega-col">
+          <h5>Giyim</h5>
+          <a href="#">Elbise & Etek</a>
+          <a href="#">Bluz & Gömlek</a>
+          <a href="#">Pantolon & Jean</a>
+          <a href="#">Ceket & Trench</a>
+          <a href="#">Sweatshirt</a>
+        </div>
+        <div class="mega-col">
+          <h5>Aksesuar</h5>
+          <a href="#">Çanta</a>
+          <a href="#">Takı & Bijuteri</a>
+          <a href="#">Şapka & Bere</a>
+          <a href="#">Kemer & Eşarp</a>
+        </div>
+        <div class="mega-promo">
+          <div class="mp-tag">Yeni Koleksiyon</div>
+          <div class="mp-title">İlkbahar '25</div>
+          <div class="mp-sub">Taze renkler, özgün tasarımlar seni bekliyor</div>
+          <a href="#">Keşfet →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <div class="nav-link">Erkek <span class="nav-arrow">▾</span></div>
+      <div class="mega">
+        <div class="mega-col">
+          <h5>Giyim</h5>
+          <a href="#">T-Shirt & Polo</a>
+          <a href="#">Gömlek</a>
+          <a href="#">Pantolon</a>
+          <a href="#">Sweatshirt & Hoodie</a>
+        </div>
+        <div class="mega-col">
+          <h5>Aksesuar</h5>
+          <a href="#">Kemer</a>
+          <a href="#">Şapka</a>
+          <a href="#">Çanta & Sırt Çantası</a>
+        </div>
+        <div class="mega-promo">
+          <div class="mp-tag">Erkek Koleksiyon</div>
+          <div class="mp-title">Modern & Şık</div>
+          <div class="mp-sub">Stilini yansıt, fark yarat</div>
+          <a href="#">Keşfet →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <div class="nav-link">POD Koleksiyon <span class="nav-arrow">▾</span></div>
+      <div class="mega">
+        <div class="mega-col">
+          <h5>Printvity</h5>
+          <a href="#">Baskılı T-Shirt</a>
+          <a href="#">Hoodie & Sweat</a>
+          <a href="#">Kupa & Aksesuarlar</a>
+          <a href="#">Telefon Kılıfı</a>
+        </div>
+        <div class="mega-col">
+          <h5>Özel Tasarım</h5>
+          <a href="#">Sınırlı Seri</a>
+          <a href="#">Sanatçı Koleksiyonu</a>
+          <a href="#">Tüm POD Ürünler</a>
+        </div>
+        <div class="mega-promo">
+          <div class="mp-tag">Printvity × SahneArkası</div>
+          <div class="mp-title">Baskı Sanatı</div>
+          <div class="mp-sub">Özgün tasarımlar, kaliteli baskı</div>
+          <a href="#">Keşfet →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item"><a href="#" class="nav-link">Kampanyalar</a></div>
+    <div class="nav-item"><a href="#" class="nav-link">Hakkımızda</a></div>
+    <div class="nav-item"><a href="#" class="nav-link">İletişim</a></div>
+
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mob-nav" id="mobNav">
+  <a href="#">Kadın Giyim</a>
+  <a href="#">Erkek Giyim</a>
+  <a href="#">POD Koleksiyon</a>
+  <a href="#">Kampanyalar</a>
+  <a href="#">Hakkımızda</a>
+  <a href="#">İletişim</a>
+  <a href="#" onclick="openAuth('login');toggleMob()">Giriş Yap</a>
+  <a href="#" onclick="openAuth('register');toggleMob()">Üye Ol</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="hero-tag"><span></span> Yeni Sezon 2025</div>
+      <h1>Sahnenin<br><em>Arkasındaki</em><br>Stil</h1>
+      <p>Özgün tasarımlar, kaliteli kumaşlar ve POD koleksiyonlar ile tarzını yansıt. Her parça bir hikaye anlatır.</p>
+      <div class="hero-btns">
+        <a href="#urunler" class="btn-pri">Koleksiyonu Keşfet</a>
+        <a href="#" class="btn-out">POD Ürünler →</a>
+      </div>
+    </div>
+    <div class="hero-grid">
+      <div class="hero-card"><div class="hc-img">👗</div><span class="hc-label">Kadın</span></div>
+      <div class="hero-card"><div class="hc-img">👔</div><span class="hc-label">Erkek</span></div>
+      <div class="hero-card"><div class="hc-img">🎨</div><span class="hc-label">POD</span></div>
+      <div class="hero-card"><div class="hc-img">✨</div><span class="hc-label">Yeni</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust">
+  <div class="trust-wrap">
+    <div class="trust-item"><span class="trust-dot"></span> Shopier Güvenli Ödeme</div>
+    <span class="trust-sep">·</span>
+    <div class="trust-item"><span class="trust-dot"></span> Kredi / Banka Kartı</div>
+    <span class="trust-sep">·</span>
+    <div class="trust-item"><span class="trust-dot"></span> PayPal</div>
+    <span class="trust-sep">·</span>
+    <div class="trust-item"><span class="trust-dot"></span> Google Pay & Apple Pay</div>
+    <span class="trust-sep">·</span>
+    <div class="trust-item"><span class="trust-dot"></span> 14 Gün İade Garantisi</div>
+  </div>
+</div>
+
+<!-- KATEGORİLER -->
+<div style="background:#fff">
+  <div class="sec">
+    <div class="sec-head">
+      <div>
+        <h2 class="sec-title">Kategorileri <span>Keşfet</span></h2>
+        <p class="sec-sub">Tarzına uygun koleksiyonu bul</p>
+      </div>
+      <a href="#" class="btn-all">Tümünü Gör →</a>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="cat-bg">👗</div>
+        <div class="cat-overlay"></div>
+        <div class="cat-info">
+          <div class="cat-name">Kadın Giyim</div>
+          <div class="cat-count">Yakında ürünler eklenecek</div>
+          <a href="#" class="cat-link">Keşfet →</a>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-bg">👔</div>
+        <div class="cat-overlay"></div>
+        <div class="cat-info">
+          <div class="cat-name">Erkek Giyim</div>
+          <div class="cat-count">Yakında ürünler eklenecek</div>
+          <a href="#" class="cat-link">Keşfet →</a>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-bg">🎨</div>
+        <div class="cat-overlay"></div>
+        <div class="cat-info">
+          <div class="cat-name">POD Koleksiyon</div>
+          <div class="cat-count">Yakında ürünler eklenecek</div>
+          <a href="#" class="cat-link">Keşfet →</a>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-bg">💎</div>
+        <div class="cat-overlay"></div>
+        <div class="cat-info">
+          <div class="cat-name">Aksesuar</div>
+          <div class="cat-count">Yakında ürünler eklenecek</div>
+          <a href="#" class="cat-link">Keşfet →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ÜRÜNLER -->
+<div class="prod-bg" id="urunler">
+  <div class="sec">
+    <div class="sec-head">
+      <div>
+        <h2 class="sec-title">Öne Çıkan <span>Ürünler</span></h2>
+        <p class="sec-sub">En çok tercih edilen parçalar</p>
+      </div>
+      <a href="#" class="btn-all">Tümünü Gör →</a>
+    </div>
+    <div class="prod-grid">
+
+      <!-- ÜRÜN 1 — Kunduz T-Shirt -->
+      <div class="prod-card">
+        <div class="prod-img">
+          <!-- Ürün görselin varsa: <img src="urun1-on.jpg" alt="Kunduz T-Shirt"> -->
+          <span class="prod-img-ph">👕</span>
+          <span class="prod-badge badge-pod">POD</span>
+          <button class="wish-btn" onclick="toggleWish(this)">🤍</button>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Erkek / POD</div>
+          <div class="prod-name">Kunduz Oversize Siyah T-Shirt</div>
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="star-cnt">(0)</span>
+          </div>
+          <div class="prod-foot">
+            <div><span class="price">₺0</span></div>
+            <!-- FİYAT VE LİNKİ EKLE: openShop('urun_1') -->
+            <button class="btn-buy" onclick="openShop('urun_1','👕','Kunduz Oversize Siyah T-Shirt','₺0')">🛒 Satın Al</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ÜRÜN 2 — Placeholder -->
+      <div class="prod-card">
+        <div class="prod-img">
+          <span class="prod-img-ph">👗</span>
+          <span class="prod-badge badge-new">Yeni</span>
+          <button class="wish-btn" onclick="toggleWish(this)">🤍</button>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Kadın Giyim</div>
+          <div class="prod-name">Yakında Eklenecek</div>
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star star-off">★</span>
+            <span class="star-cnt">(0)</span>
+          </div>
+          <div class="prod-foot">
+            <div><span class="price">₺—</span></div>
+            <button class="btn-buy" onclick="openShop('urun_2','👗','Kadın Ürün','₺—')">🛒 Satın Al</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ÜRÜN 3 -->
+      <div class="prod-card">
+        <div class="prod-img">
+          <span class="prod-img-ph">👔</span>
+          <span class="prod-badge badge-trend">Trend</span>
+          <button class="wish-btn" onclick="toggleWish(this)">🤍</button>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Erkek Giyim</div>
+          <div class="prod-name">Yakında Eklenecek</div>
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="star-cnt">(0)</span>
+          </div>
+          <div class="prod-foot">
+            <div><span class="price">₺—</span></div>
+            <button class="btn-buy" onclick="openShop('urun_3','👔','Erkek Ürün','₺—')">🛒 Satın Al</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ÜRÜN 4 -->
+      <div class="prod-card">
+        <div class="prod-img">
+          <span class="prod-img-ph">💎</span>
+          <span class="prod-badge badge-sale">İndirim</span>
+          <button class="wish-btn" onclick="toggleWish(this)">🤍</button>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Aksesuar</div>
+          <div class="prod-name">Yakında Eklenecek</div>
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            <span class="star-cnt">(0)</span>
+          </div>
+          <div class="prod-foot">
+            <div><span class="price">₺—</span></div>
+            <button class="btn-buy" onclick="openShop('urun_4','💎','Aksesuar Ürün','₺—')">🛒 Satın Al</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- PROMO BANNERS -->
+<div class="promo-sec">
+  <div class="promo-wrap">
+    <div class="promo-card pc1">
+      <span class="promo-bg-txt">POD</span>
+      <div class="promo-tag">📦 Printvity ile</div>
+      <div class="promo-title">Kendi Tasarımını Giy</div>
+      <div class="promo-desc">Özel baskı ürünleriyle kendini ifade et. Sınırsız tasarım seçeneği.</div>
+      <a href="#" class="promo-link">POD Koleksiyona Git →</a>
+    </div>
+    <div class="promo-card pc2">
+      <span class="promo-bg-txt">%30</span>
+      <div class="promo-tag">🔥 Haftanın Fırsatı</div>
+      <div class="promo-title">Sezonu Kaçırma</div>
+      <div class="promo-desc">Seçili ürünlerde %30'a varan indirimler. Sadece bu hafta!</div>
+      <a href="#" class="promo-link">Kampanyaları Gör →</a>
+    </div>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<section class="news-sec">
+  <div class="news-wrap">
+    <span class="news-tag">✦ E-Bülten</span>
+    <h2>Trendleri İlk Sen Öğren</h2>
+    <p>Yeni koleksiyonlar, özel indirimler ve stil önerilerinden haberdar ol. Spam yok, sadece güzel şeyler.</p>
+    <div class="news-form">
+      <input type="email" placeholder="E-posta adresin…" />
+      <button>Abone Ol ✦</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#" class="foot-logo">Sahne<span>Arkası</span></a>
+        <p class="foot-desc">Özgün tasarımlar ve POD koleksiyonlarla tarzını yansıt. Güvenli ödeme Shopier ile.</p>
+        <div class="socials">
+          <a href="#" class="soc-link">📷</a>
+          <a href="#" class="soc-link">🐦</a>
+          <a href="#" class="soc-link">📘</a>
+          <a href="#" class="soc-link">▶️</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h6>Mağaza</h6>
+        <a href="#">Kadın Giyim</a>
+        <a href="#">Erkek Giyim</a>
+        <a href="#">POD Koleksiyon</a>
+        <a href="#">Aksesuar</a>
+        <a href="#">Kampanyalar</a>
+      </div>
+      <div class="foot-col">
+        <h6>Yardım</h6>
+        <a href="#">Sipariş Takibi</a>
+        <a href="#">İade & Değişim</a>
+        <a href="#">Kargo Bilgisi</a>
+        <a href="#">Beden Rehberi</a>
+        <a href="#">SSS</a>
+      </div>
+      <div class="foot-col">
+        <h6>Ödeme</h6>
+        <a href="#">Shopier Güvenli Ödeme</a>
+        <a href="#">Kredi / Banka Kartı</a>
+        <a href="#">PayPal</a>
+        <a href="#">Google Pay</a>
+        <a href="#">Apple Pay</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2025 SahneArkası. Tüm hakları saklıdır.</p>
+      <div class="pay-logos">
+        <span class="pay-logo">Shopier</span>
+        <span class="pay-logo">Visa</span>
+        <span class="pay-logo">Mastercard</span>
+        <span class="pay-logo">PayPal</span>
+        <span class="pay-logo">G Pay</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- SHOPIER MODAL -->
+<div class="overlay" id="shopModal" onclick="closeOut(event,'shopModal')">
+  <div class="modal">
+    <div class="shop-head">
+      <div><h3>Güvenli Ödeme</h3><p>Shopier altyapısıyla korumalı</p></div>
+      <button class="m-close" onclick="closeModal('shopModal')">✕</button>
+    </div>
+    <div class="shop-body">
+      <div class="prod-prev">
+        <span id="mEmoji" class="pp-emoji">👕</span>
+        <div class="pp-info">
+          <h4 id="mName">Ürün</h4>
+          <div class="pp-price" id="mPrice">₺0 <small>Shopier ile güvenli ödeme</small></div>
+        </div>
+      </div>
+      <div class="pay-title">Ödeme Yöntemi Seç</div>
+      <div class="pay-opts">
+        <div class="pay-opt sel" onclick="selPay(this)">
+          <span class="pay-opt-icon">💳</span>
+          <span class="pay-opt-name">Kredi / Banka Kartı</span>
+          <span class="pay-opt-sub">Visa · Mastercard · Troy</span>
+        </div>
+        <div class="pay-opt" onclick="selPay(this)">
+          <span class="pay-opt-icon">🅿️</span>
+          <span class="pay-opt-name">PayPal</span>
+          <span class="pay-opt-sub">Uluslararası ödeme</span>
+        </div>
+        <div class="pay-opt" onclick="selPay(this)">
+          <span class="pay-opt-icon">G</span>
+          <span class="pay-opt-name">Google Pay</span>
+          <span class="pay-opt-sub">Hızlı & güvenli</span>
+        </div>
+        <div class="pay-opt" onclick="selPay(this)">
+          <span class="pay-opt-icon"></span>
+          <span class="pay-opt-name">Apple Pay</span>
+          <span class="pay-opt-sub">Face ID ile öde</span>
+        </div>
+      </div>
+      <button class="shop-go" onclick="goShopier()">🔒 Shopier'da Güvenli Öde</button>
+      <div class="sec-note">🔒 256-bit SSL şifrelemesi · Shopier güvencesi · Verileriniz korunur</div>
+    </div>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="overlay" id="authModal" onclick="closeOut(event,'authModal')">
+  <div class="modal">
+    <div class="auth-head">
+      <div><h3 id="authTitle">Hoş Geldin</h3><p id="authSub">SahneArkası hesabına giriş yap</p></div>
+      <button class="m-close" onclick="closeModal('authModal')">✕</button>
+    </div>
+    <div class="auth-body">
+      <div class="tabs">
+        <button class="tab active" id="t1" onclick="switchTab('login')">Giriş Yap</button>
+        <button class="tab" id="t2" onclick="switchTab('register')">Üye Ol</button>
+      </div>
+      <div class="soc-btns">
+        <button class="soc-btn"><span class="soc-btn-icon">G</span> Google ile devam et</button>
+        <button class="soc-btn"><span class="soc-btn-icon">📱</span> Telefon numarasıyla devam et</button>
+      </div>
+      <div class="divider"><span>ya da e-posta ile</span></div>
+      <div id="loginForm">
+        <div class="fg"><label>E-posta</label><input type="email" placeholder="ornek@email.com"/></div>
+        <div class="fg"><label>Şifre</label><input type="password" placeholder="••••••••"/></div>
+        <button class="btn-submit">Giriş Yap</button>
+      </div>
+      <div id="regForm" style="display:none">
+        <div class="fg"><label>Ad Soyad</label><input type="text" placeholder="Adın ve soyadın"/></div>
+        <div class="fg"><label>E-posta</label><input type="email" placeholder="ornek@email.com"/></div>
+        <div class="fg"><label>Şifre</label><input type="password" placeholder="En az 8 karakter"/></div>
+        <button class="btn-submit">Üye Ol</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// ⚙️ SHOPIER LİNKLERİ — Kendi linklerini buraya yaz!
+// Her ürün için Shopier'dan aldığın satış linkini ekle.
+// ============================================================
+const SHOPIER = {
+  urun_1: 'https://www.shopier.com/MAGANIZIN-LINKI/urun1',
+  urun_2: 'https://www.shopier.com/MAGANIZIN-LINKI/urun2',
+  urun_3: 'https://www.shopier.com/MAGANIZIN-LINKI/urun3',
+  urun_4: 'https://www.shopier.com/MAGANIZIN-LINKI/urun4',
+};
+// ============================================================
+
+let curLink = '', wishCount = 0;
+
+// Sticky header shadow
+window.addEventListener('scroll', () => {
+  document.getElementById('hdr').classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// Shopier modal
+function openShop(key, emoji, name, price) {
+  document.getElementById('mEmoji').textContent = emoji;
+  document.getElementById('mName').textContent = name;
+  document.getElementById('mPrice').innerHTML = price + ' <small>Shopier ile güvenli ödeme</small>';
+  curLink = SHOPIER[key] || '#';
+  document.querySelectorAll('.pay-opt').forEach((o,i) => o.classList.toggle('sel', i===0));
+  document.getElementById('shopModal').classList.add('open');
+}
+function goShopier() {
+  if (curLink && curLink !== '#') window.open(curLink, '_blank');
+  else alert('⚠️ SHOPIER objesindeki linki kendi Shopier ürün linkinle değiştir!');
+  closeModal('shopModal');
+}
+function selPay(el) {
+  document.querySelectorAll('.pay-opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+}
+
+// Auth modal
+function openAuth(tab) {
+  document.getElementById('authModal').classList.add('open');
+  switchTab(tab);
+}
+function switchTab(tab) {
+  const isLogin = tab === 'login';
+  document.getElementById('loginForm').style.display = isLogin ? 'block' : 'none';
+  document.getElementById('regForm').style.display = isLogin ? 'none' : 'block';
+  document.getElementById('t1').classList.toggle('active', isLogin);
+  document.getElementById('t2').classList.toggle('active', !isLogin);
+  document.getElementById('authTitle').textContent = isLogin ? 'Hoş Geldin' : 'Üye Ol';
+  document.getElementById('authSub').textContent = isLogin ? 'SahneArkası hesabına giriş yap' : 'Yeni hesap oluştur';
+}
+
+// Modal kapat
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+function closeOut(e, id) { if (e.target.id === id) closeModal(id); }
+
+// Favoriler
+function toggleWish(btn) {
+  const on = btn.classList.toggle('active');
+  btn.textContent = on ? '❤️' : '🤍';
+  wishCount = Math.max(0, wishCount + (on ? 1 : -1));
+  document.getElementById('wc').textContent = wishCount;
+}
+
+// Hamburger
+function toggleMob() {
+  document.getElementById('mobNav').classList.toggle('open');
+}
+
+// ESC tuşu
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeModal('shopModal');
+    closeModal('authModal');
+  }
+});
+</script>
+</body>
+</html>
+
